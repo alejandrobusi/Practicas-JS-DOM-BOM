@@ -7,12 +7,10 @@
   <title>Practicas JS-DOM-BOM</title>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="./Styles/bootstrap.min.css">
-  <link rel="stylesheet" href="./Styles/Style.css">
+  <!-- <link rel="stylesheet" href="./Styles/Style.css"> -->
   <link rel="shortcut icon" href="./Img/javascript_icon_130900.png" type="image/x-icon">
 </head>
 <body class="vh-100">
-  
-
 <nav class="navbar navbar-expand-lg navbar-dark shadow sticky-top bg-dark mb-5">
   <div class="container ">
     <a class="navbar-brand d-flex align-items-center" href="#footer">
@@ -22,20 +20,58 @@
   </div>
 </nav>
 <main>
-  <section class="container d-flex">
-    <div class="card shadow text-white bg-primary col-sm-12 col-md-12 col-lg-6 mb-3" >
+  <h1 class="text-center mb-5">DOM & BOM</h1>
+  <section class="container d-flex flex-wrap">
+    <div class="card shadow text-white bg-primary col-sm-12 col-md-12 col-lg-12 mb-3" >
       <div class="card-header">Ejercicio 1</div>
       <div class="card-body">
-        <h4 class="card-title">Números mágicos</h4>
+        <h4 class="card-title">Números mágicos (del 0 al 10)</h4>
         <p class="card-text">Crea una web con bootstrap y js, que contenga un botón comenzar el juego, en ese momento se crea un número aleatorio que el usuario deberá adivinar, la interfaz del usuario debe tener además un input para ingresar un número y un botón enviar, al presionar el botón enviar mostrar en un alert si el usuario adivino o no el número mágico, si no lo adivino indicarle con un alert si el numero que ingreso es mayor o menor al número mágico.
           Cuando el usuario adivine el numero mostrar un mensaje indicando al usuario que adivino el numero.</p>
         <div class="form-group col-sm-4 col-md-4 col-lg-4">
-          <input type="number" class="form-control " placeholder="¡Prueba tu suerte!" id="inputDefault">
+          <input type="number" class="form-control " placeholder="¡Prueba tu suerte!" id="inputEj1">
         </div>
-        <button type="button" class="btn btn-dark mt-2 me-1"></button>
+        <button type="button" onclick="Ej1()" class="btn btn-dark mt-2 me-1">Adivinar</button>
       </div>
     </div>
-
+    <div class="card shadow text-white bg-danger col-sm-12 col-md-12 col-lg-12 mb-3">
+      <div class="card-header">Ejercicio 2</div>
+      <div class="card-body">
+        <h4 class="card-title">Generaciones</h4>
+        <p class="card-text">Crea una clase llamada Persona que siga las siguientes condiciones:
+          Sus propiedades son: nombre, edad, DNI, sexo (H hombre, M mujer), peso y altura, año de nacimiento. Si quieres añadir alguna propiedad extra puedes hacerlo.
+          Sus metodos son: mostrarGeneracion, esMayorDeEdad, mostrarDatos.</p>
+        <div class="form-group d-flex flex-wrap col-lg-4 justify-content-start">
+          <input type="text" class="form-control mx-1 my-1" placeholder="Nombre completo" id="inputName">
+          <input type="text" class="form-control mx-1 my-1" placeholder="Edad" id="inputAge">
+          <input type="text" class="form-control mx-1 my-1" placeholder="Documento" id="inputDoc">
+          <div class="form-group mx-1 my-1">
+            <select class="form-select" id="inputSex">
+              <option>Hombre</option>
+              <option>Mujer</option>
+              <option>Otros</option>
+            </select>
+          </div>
+          <input type="text" class="form-control mx-1 my-1" placeholder="Peso" id="inputWeight">
+          <input type="text" class="form-control mx-1 my-1" placeholder="Altura (en CM)" id="inputHeight">
+          <input type="text" class="form-control mx-1 my-1" placeholder="Año de nacimiento" id="inputBirth">
+        </div>
+        <button type="button" onclick="Ej2a()" class="btn btn-dark mx-1 mt-2 me-1">¡Crear Objeto!</button>
+        <div>
+          <button type="button" onclick="Ej2b('showGeneration')" class="btn btn-dark mx-1 mt-2 me-1">Ver Gen</button>
+          <button type="button" onclick="Ej2b('adult')" class="btn btn-dark mx-1 mt-2 me-1">+18?</button>
+          <button type="button" onclick="Ej2b('showData')" class="btn btn-dark mx-1 mt-2 me-1">Ver datos</button>
+          <button type="button" onclick="Ej2b('generateId')" class="btn btn-dark mx-1 mt-2 me-1">Ver DNI</button>
+        </div>
+      </div>
+    </div>
+    <div id="clock" class="card text-white bg-warning vw-100 mb-3">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h4 class="card-title">Warning card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
   </section>
 </main>
 

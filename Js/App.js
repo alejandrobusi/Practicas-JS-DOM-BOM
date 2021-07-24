@@ -1,112 +1,105 @@
-// function Ej1(params) {
-//   var personas = ["Nico","Dani","Pato","Ale","Jaqui","Sebas"]
-// personas.map(persona => document.write(`<h1> ${persona} </h1>`))
-// }
-// Ej1()
-// var personas = ["Nico","Dani","Pato","Ale","Jaqui","Sebas"]
-// for (let index = 0; index < personas.length; index++) {
-//   document.write(`<h1> ${personas[index]} </h1>`);
-  
-// }
-
-// var products = [
-//   { id: 233, name: "Leche", price: 120, categories: ["familiar", "comida"] },
-//   { id: 342, name: "Arroz", price: 80, categories: ["familiar", "comida"] },
-//   { id: 566, name: "Lavadora", price: 7800, categories: ["electrodomésticos"] }
-// ];
-// console.log(products[1].categories[1])
-// for (let index = 0; index < products.length; index++) {
-//   console.log(products[index].categories[0]);
-//   console.log(products[index].price);
-//   console.log(products[index].name);
-  
-// }
-// products.map(product => {
-//   console.log("Categoria :" + product.categories);
-//   console.log("Precio :$" + product.price);
-//   console.log("Nombre:" + product.name);
-//   console.log("ID:" + product.id)
-// });
-// products[0].modelo = 2018;
-// products[1].modelo = 2011;
-// products[2].modelo = 2032;
-// console.log(products[0],[1],[2])
-
-
-//literal
-// let auto= {
-//   marca: "chevrolet",
-//   modelo: 2014,
-//   color: "blanco"
-// }
-// //funcion constructora (siempre en mayus)
-
-// function Auto(marca, modelo, color) {
-//   this.marca = marca;
-//   this.modelo = modelo;
-//   this.color = color; 
-// }
-// var autonew = new Auto("fiat",1993,"verde")
-// console.log(autonew)
-
-// //Constructor de objetos 
-
-// var persona = new Object();
-//   persona.nombre = "Facu"
-//   persona.apellido = "Mirande"
-//   persona.edad = "24";
-
-//   console.log(persona);
-
-// //object.create
-
-// let autoNuevo = Object.create(autonew);
-// console.log(autoNuevo)
-// //*******funcion constructora (siempre en mayus)********/
-// const brand = "Ford";
-// const color = "Gris"
-// const model = 2020;
-
-// function Car(brand, color, model) {
-//   this.marca = brand;
-//   this.color = color;
-//   this.model0 = model;
-// }
-// var carNew = new Car(brand, color, model)
-// console.log(carNew)
-
-// //*********COMPARANDO OBJETOS**********/
-// let persona1 = {nombre : "Nicolas"}
-// let persona2 = {nombre : "Nicolas"}
-
-
-// if (persona1.nombre  == persona2.nombre) {
-//   alert("son iguales")
-// } else {
-//   alert("no son iguales")
-// }
-
-// //**********************CLASES**/
-
-class Persona {
-  constructor(nombre, apellido, edad, admin){
-    this.nombre = nombre
-    this.apellido = apellido
-    this.edad = edad
-    this.admin = admin
+class Person{
+  constructor(name, age, doc, sex, weight, height, dateOfYear){
+    this.nombre = name;
+    this.edad = age;
+    this.documento = doc;
+    this.sexo = sex;
+    this.peso = weight;
+    this.altura = height;
+    this.añoNacimiento = dateOfYear;
   }
-  isAdmin(){
-    if (admin) {
-      alert("Es admin.")
-    } else {
-      alert("Ni es admin.")
+  showGeneration (){
+    if (this.añoNacimiento >= 1930 && this.añoNacimiento <= 1948) {
+      alert(`${this.nombre} pertenece a "Silent Generation" (niños de la post guerra).\n
+      Su rasgo característico es la Austeridad. (Sencillez y moderación propias de la persona.).`)
+    } else if(this.añoNacimiento >= 1949 && this.añoNacimiento <= 1968){
+      alert(`${this.nombre} pertenece a "Baby Boom".\n
+      Su rasgo característico es la Ambicion. (Deseo intenso y vehemente de conseguir una cosa difícil de lograr, especialmente riqueza, poder o fama.).`)
+    } else if (this.añoNacimiento >= 1969 && this.añoNacimiento <= 1980) {
+      alert(`${this.nombre} pertenece a "Generación X".\n
+      Su rasgo característico es la Obsesión por el éxito. (Una competencia por alcanzar el éxito, el éxito para algunos a menudo puede variar segun su realidad.).`)
+    } else if (this.añoNacimiento >= 1981 && this.añoNacimiento <= 1993) {
+      alert(`${this.nombre} pertenece a "Generación Y".\n
+      Su rasgo característico es la Frustración. (La frustración es una respuesta emocional común a la oposición, relacionada con la ira y la decepción, que surge de la percepción de resistencia al cumplimiento de la voluntad individual.).`)
+    } else if (this.añoNacimiento >= 1994 && this.añoNacimiento <= 2010) {
+      alert(`${this.nombre} pertenece a "Generación Z".\n
+      Su rasgo característico es la Irreverencia. (Persona que lucha, contiende o está en oposición con otra.).`)
     }
   }
+  adult (){
+    if (this.edad >= 18) {
+      alert(`${this.nombre} es mayor de edad.\n
+      Su edad actual es de ${this.edad} años.`)
+    } else {
+      alert(`${this.nombre} NO mayor de edad.\n
+      Su edad actual es de ${this.edad} años.`)
+    }
+  }
+  showData (){
+    alert(`Propiedades del objeto.\n
+    Nombre: ${this.nombre}.\n
+    Edad: ${this.edad} años.\n
+    DNI: ${this.documento}.\n
+    Sexo: ${this.sexo}.\n
+    Peso: ${this.peso} KG.\n
+    altura: ${this.altura} CM.\n
+    Año de nacimiento: ${this.añoNacimiento}.`) 
+  }
+  generateId (){
+    this.documento = Math.round(Math.random() * 100000000);
+    alert('Tu número aleatorio es: ' + this.documento +".");
+  } 
 }
-let persona1 = new Persona("mauricio", "muñoz", 23, true)
-let persona2 = new Persona("smith", "chars", 25, false)
 
-console.log(persona1)
-console.log(persona2)
+let Ej1 = () => {
+  let random = Math.round(Math.random() * 10);
+  let imputNumber = parseInt(document.getElementById("inputEj1").value)
+  if (imputNumber <= 10 && !isNaN(imputNumber)) {
+    if (imputNumber == random) {
+      alert("¡¡¡We Are the Champions!!!")
+    } else {
+      alert("¡¡¡Fallaste, intenta de nuevo!!!")
+    }
+  }else {
+    alert("Solo puedes ingresar numero del 0 al 10.")
+  }
+  console.log(random)
+}
+let people;
+let Ej2a = () => {
+  let name = document.getElementById("inputName").value
+  let age = document.getElementById("inputAge").value
+  let doc = document.getElementById("inputDoc").value
+  let sex =  document.getElementById("inputSex").value
+  let weight = document.getElementById("inputWeight").value
+  let height = document.getElementById("inputHeight").value
+  let dateOfYear = document.getElementById("inputBirth").value
+  people = new Person(name, age, doc, sex, weight, height, dateOfYear)
+  console.log(name)
+}
+let Ej2b = (metod) => {
+  people[metod]();
+}
+let Ej3 = () => {
+  let dateClock = new Date();
+  
+}
 
-persona1.isAdmin();
+function startTime() {
+  var today = new Date();
+  var hr = today.getHours();
+  var min = today.getMinutes();
+  var sec = today.getSeconds();
+  //Add a zero in front of numbers<10
+  min = checkTime(min);
+  sec = checkTime(sec);
+  document.getElementById("clock").innerHTML = hr + " : " + min + " : " + sec;
+  var time = setTimeout(function(){ startTime() }, 500);
+}
+function checkTime(i) {
+  if (i < 10) {
+      i = "0" + i;
+  }
+  return i;
+}
+startTime();
