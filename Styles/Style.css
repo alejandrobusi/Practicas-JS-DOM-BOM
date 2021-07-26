@@ -2,3 +2,20 @@
   background: rgb(149,196,247);
   background: linear-gradient(180deg, rgba(149,196,247,1) 1%, rgba(15,56,80,1) 45%, rgba(86,17,176,1) 100%); 
 } */
+@font-face {
+  font-family: DS-DIGI;
+  src: url(../Font/DS-DIGI.TTF);
+}
+.timeFont {
+  font-family: DS-DIGI ;
+}
+.txtDate {
+  font-size: 250%;
+  color: #32fbe2;
+  text-shadow: 0 0 1px rgba(50,251,226,.6),0 0 3px rgba(50,251,226,.5),0 0 .5rem rgba(50,251,226,.3),0 0 2rem rgba(50,251,226,.2);
+}
+.txtTime {
+  font-size: 700%;
+  color: #32fbe2;
+  text-shadow: 0 0 1px rgba(50,251,226,.6),0 0 3px rgba(50,251,226,.5),0 0 .5rem rgba(50,251,226,.3),0 0 2rem rgba(50,251,226,.2);
+}

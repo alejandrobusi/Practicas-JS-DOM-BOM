@@ -7,7 +7,7 @@
   <title>Practicas JS-DOM-BOM</title>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="./Styles/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="./Styles/Style.css"> -->
+  <link rel="stylesheet" href="./Styles/Style.css">
   <link rel="shortcut icon" href="./Img/javascript_icon_130900.png" type="image/x-icon">
 </head>
 <body class="vh-100">
@@ -65,11 +65,29 @@
         </div>
       </div>
     </div>
-    <div id="clock" class="card text-white bg-warning vw-100 mb-3">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Warning card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </section>
+  <section class="Container ">
+    <div class="justify-content-center card bg-dark mb-3 col-sm-6 col-md-6 col-lg-6 timeFont">
+      <div class="d-flex flex-wrap justify-content-center my-3">
+        <p class="mx-1 txtDate" id="day"></p>
+        <p class="mx-1 txtDate" id="numberDay"></p>
+        <p class="mx-1 txtDate" id="">de</p>
+        <p class="mx-1 txtDate" id="month"></p>
+        <p class="mx-1 txtDate" id="">del</p>
+        <p class="mx-1 txtDate" id="fullYear"></p>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center ">
+        <div class="">
+          <p class="hours mx-2 txtTime" id="hours"></p>
+        </div>
+          <p class=" txtTime">:</p>
+        <div>
+          <p class="min mx-2 txtTime" id="min"></p>
+        </div>
+          <p class=" txtTime">:</p>
+        <div>
+          <p class="seg mx-2 txtTime" id="seg"></p>
+        </div>
       </div>
     </div>
   </section>

@@ -67,39 +67,65 @@ let Ej1 = () => {
 }
 let people;
 let Ej2a = () => {
-  let name = document.getElementById("inputName").value
-  let age = document.getElementById("inputAge").value
-  let doc = document.getElementById("inputDoc").value
-  let sex =  document.getElementById("inputSex").value
-  let weight = document.getElementById("inputWeight").value
-  let height = document.getElementById("inputHeight").value
-  let dateOfYear = document.getElementById("inputBirth").value
+  let name = document.getElementById("inputName").value,
+  age = document.getElementById("inputAge").value,
+  doc = document.getElementById("inputDoc").value,
+  sex =  document.getElementById("inputSex").value,
+  weight = document.getElementById("inputWeight").value,
+  height = document.getElementById("inputHeight").value,
+  dateOfYear = document.getElementById("inputBirth").value;
   people = new Person(name, age, doc, sex, weight, height, dateOfYear)
   console.log(name)
 }
 let Ej2b = (metod) => {
   people[metod]();
 }
-let Ej3 = () => {
-  let dateClock = new Date();
-  
-}
 
-function startTime() {
-  var today = new Date();
-  var hr = today.getHours();
-  var min = today.getMinutes();
-  var sec = today.getSeconds();
-  //Add a zero in front of numbers<10
+let Ej3 = () => {
+  function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+  }
+
+  let today = new Date(),
+  hr = today.getHours(),
+  min = today.getMinutes(),
+  sec = today.getSeconds(),
+  day = today.getDay(),
+  date = today.getDate(),
+  month = today.getMonth(),
+  fullYear = today.getFullYear();
+  let dayArray = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]; 
+  let monthArray = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   min = checkTime(min);
   sec = checkTime(sec);
-  document.getElementById("clock").innerHTML = hr + " : " + min + " : " + sec;
-  var time = setTimeout(function(){ startTime() }, 500);
+  Hr = checkTime(hr);
+
+  let paragraphDay = document.getElementById('day'),
+  paragraphNumbDay = document.getElementById('numberDay'),
+  paragraphMonth = document.getElementById('month'),
+  paragraphFullYear = document.getElementById('fullYear'),
+  paragraphHours = document.getElementById('hours'),
+  paragraphMin = document.getElementById('min'),
+  paragraphSeg = document.getElementById('seg');
+  
+  paragraphDay.textContent = dayArray[day];
+  paragraphNumbDay.textContent = date;
+  paragraphMonth.textContent = monthArray[month];
+  paragraphFullYear.textContent = fullYear;
+  paragraphHours.textContent = hr;
+  paragraphMin.textContent = min;
+  paragraphSeg.textContent = sec;
+  setInterval(Ej3,500)
 }
-function checkTime(i) {
-  if (i < 10) {
-      i = "0" + i;
-  }
-  return i;
-}
-startTime();
+  Ej3()
+
+//   min = checkTime(min);
+//   sec = checkTime(sec);
+//   hr = checkTime(hr)
+//   document.getElementById("clock").innerHTML = hr + " : " + min + " : " + sec;
+//   setTimeout(function(){ startTime() }, 500);
+// }
+//
