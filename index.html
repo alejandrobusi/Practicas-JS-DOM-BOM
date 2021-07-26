@@ -65,9 +65,7 @@
         </div>
       </div>
     </div>
-  </section>
-  <section class="Container ">
-    <div class="justify-content-center card bg-dark mb-3 col-sm-6 col-md-6 col-lg-6 timeFont">
+    <div class="card bg-dark mb-3 col-sm-6 col-md-6 col-lg-5 timeFont ">
       <div class="d-flex flex-wrap justify-content-center my-3">
         <p class="mx-1 txtDate" id="day"></p>
         <p class="mx-1 txtDate" id="numberDay"></p>
@@ -89,6 +87,27 @@
           <p class="seg mx-2 txtTime" id="seg"></p>
         </div>
       </div>
+    </div>
+    <div class="card text-white bg-dark mx-3 mb-3 col-sm-6 col-md-6 col-lg-5  timeFont txtChrono" >
+      <div class="card-header">Cronometro</div>
+        <div class="d-flex justify-content-center align-self-center flex-wrap ">
+          <div>
+            <p class="mx-2 txtTime" id="chronoHour"></p>
+          </div>
+          <p class="mx-2 txtTime">:</p>
+          <div>
+            <p class="mx-2 txtTime" id="chronoMin"></p>
+          </div>
+          <p class="mx-2 txtTime">:</p>
+          <div>
+            <p class="mx-2 txtTime" id="chronoSec"></p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" onclick="chrono()" class="btn btn-dark mx-1 mt-2 me-1">Play</button>
+          <button type="button" onclick="write()" class="btn btn-dark mx-1 mt-2 me-1">Stop</button>
+          <button type="button" onclick="" class="btn btn-dark mx-1 mt-2 me-1">Reset</button>
+        </div>
     </div>
   </section>
 </main>

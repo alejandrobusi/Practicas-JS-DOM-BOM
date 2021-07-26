@@ -51,6 +51,7 @@ class Person{
   } 
 }
 
+// window.onload = Ej3(),Ej4;
 let Ej1 = () => {
   let random = Math.round(Math.random() * 10);
   let imputNumber = parseInt(document.getElementById("inputEj1").value)
@@ -81,13 +82,13 @@ let Ej2b = (metod) => {
   people[metod]();
 }
 
-let Ej3 = () => {
-  function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
+function checkTime(i) {
+  if (i < 10) {
+      i = "0" + i;
   }
+  return i;
+}
+let Ej3 = () => {
 
   let today = new Date(),
   hr = today.getHours(),
@@ -120,12 +121,44 @@ let Ej3 = () => {
   paragraphSeg.textContent = sec;
   setInterval(Ej3,500)
 }
-  Ej3()
+  Ej3();
 
-//   min = checkTime(min);
-//   sec = checkTime(sec);
-//   hr = checkTime(hr)
-//   document.getElementById("clock").innerHTML = hr + " : " + min + " : " + sec;
-//   setTimeout(function(){ startTime() }, 500);
-// }
-//
+  let Ej4 = () => {
+    sec = 0,
+    min= 0,
+    hour = 0;
+
+    pSec = document.getElementById('chronoSec'),
+    pMin = document.getElementById('chronoMin'),
+    pHour = document.getElementById('chronoHour');
+    pSec.textContent = "00"
+    pMin.textContent = "00"
+    pHour.textContent = "00"
+  }
+  Ej4()
+  let h = 00,m =00,s= 58;
+  function write(params) {
+    s++
+    if (s>59){m++;s=0;}
+    if (m>59){h++;m=0;}
+    if (h>24){h=0;}
+    console.log(s)
+    console.log(h)
+    console.log(m)
+    
+    h = checkTime(parseInt(h))
+    m = checkTime(parseInt(m))
+    s = checkTime(parseInt(s))
+    pSec.textContent = ""
+    pMin.textContent = ""
+    pHour.textContent = ""
+    pSec.textContent = s;
+    pMin.textContent = m;
+    pHour.textContent = h;
+    }
+  let id 
+  function chrono(){
+    
+    id = setInterval(write,1000);
+    
+  }
