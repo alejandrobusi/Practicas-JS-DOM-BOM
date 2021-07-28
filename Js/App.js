@@ -21,7 +21,7 @@ class Person{
     } else if (this.añoNacimiento >= 1981 && this.añoNacimiento <= 1993) {
       alert(`${this.nombre} pertenece a "Generación Y".\n
       Su rasgo característico es la Frustración. (La frustración es una respuesta emocional común a la oposición, relacionada con la ira y la decepción, que surge de la percepción de resistencia al cumplimiento de la voluntad individual.).`)
-    } else if (this.añoNacimiento >= 1994 && this.añoNacimiento <= 2010) {
+    } else if (this.añoNacimiento >= 1994 && this.añoNacimiento <= 2021) {
       alert(`${this.nombre} pertenece a "Generación Z".\n
       Su rasgo característico es la Irreverencia. (Persona que lucha, contiende o está en oposición con otra.).`)
     }
@@ -50,8 +50,85 @@ class Person{
     alert('Tu número aleatorio es: ' + this.documento +".");
   } 
 }
-
-// window.onload = Ej3(),Ej4;
+class Clock{
+  constructor(today){
+  this.today = today,
+  this.hr = today.getHours(),
+  this.min = today.getMinutes(),
+  this.sec = today.getSeconds(),
+  this.day = today.getDay(),
+  this.date = today.getDate(),
+  this.month = today.getMonth(),
+  this.fullYear = today.getFullYear();
+  this.dayArray = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]; 
+  this.monthArray = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  this.paragraphNumbDay = document.getElementById('numberDay'),
+  this.paragraphDay = document.getElementById('day'),
+  this.paragraphMonth = document.getElementById('month'),
+  this.paragraphFullYear = document.getElementById('fullYear'),
+  this.paragraphHours = document.getElementById('hours'),
+  this.paragraphMin = document.getElementById('min'),
+  this.paragraphSeg = document.getElementById('seg');
+  this.id ;
+  }
+  checkTimes(i){
+      if (i < 10) {
+              i = "0" + i;
+          }
+          return i;
+  }
+  write (){
+      this.paragraphDay.textContent = this.dayArray[this.day];
+      this.paragraphNumbDay.textContent = this.date;
+      this.paragraphMonth.textContent = this.monthArray[this.month];
+      this.paragraphFullYear.textContent = this.fullYear;
+      this.paragraphHours.textContent = this.checkTimes(this.hr);
+      this.paragraphMin.textContent = this.checkTimes(this.min);
+      this.paragraphSeg.textContent = this.checkTimes(this.sec);
+      this.id = setInterval(this.write, 1000)
+}
+}
+class Chrono{
+  constructor(hour, min, sec){
+  this.sec = sec;
+  this.min = min;
+  this.hour = hour;
+  this.id ;
+  }
+  checkTime(i) {
+    if (i < 10 && i > 0) {
+        return "0" + i;
+    } else if (i == 0) {
+      return "00"
+    }else{
+    return i;
+    }
+  }
+  write (pSec, pMin, pHour, playBtn){
+    playBtn.disabled = true
+    this.id = setInterval(()=>{
+        this.sec++
+          if (this.sec>59){this.min++;this.sec=0;}
+          if (this.min>59){this.hour++;this.min=0;}
+          if (this.hour>24){this.hour=0;}
+        
+          pHour.textContent = this.checkTime(this.hour);
+          pMin.textContent = this.checkTime(this.min);
+          pSec.textContent = this.checkTime(this.sec);
+      },1000)
+  }
+  reset(){
+    playBtn.disabled = false
+    this.sec
+    this.sec = -1
+    this.min = 0
+    this.hour = 0
+  }
+  stop(){
+    clearInterval(this.id)
+    playBtn.disable = false
+  }
+}
 let Ej1 = () => {
   let random = Math.round(Math.random() * 10);
   let imputNumber = parseInt(document.getElementById("inputEj1").value)
@@ -82,83 +159,48 @@ let Ej2b = (metod) => {
   people[metod]();
 }
 
-function checkTime(i) {
-  if (i < 10) {
-      i = "0" + i;
-  }
-  return i;
-}
-let Ej3 = () => {
+// function checkTime(i) {
+//   if (i < 10) {
+//       i = "0" + i;
+//   }
+//   return i;
+// }
+// let Ej3 = () => {
 
-  let today = new Date(),
-  hr = today.getHours(),
-  min = today.getMinutes(),
-  sec = today.getSeconds(),
-  day = today.getDay(),
-  date = today.getDate(),
-  month = today.getMonth(),
-  fullYear = today.getFullYear();
-  let dayArray = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]; 
-  let monthArray = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-  min = checkTime(min);
-  sec = checkTime(sec);
-  Hr = checkTime(hr);
+//   let today = new Date(),
+//   interval = setInterval(Ej3,500)
+//   hr = today.getHours(),
+//   min = today.getMinutes(),
+//   sec = today.getSeconds(),
+//   day = today.getDay(),
+//   date = today.getDate(),
+//   month = today.getMonth(),
+//   fullYear = today.getFullYear();
+//   let dayArray = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]; 
+//   let monthArray = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+//   min = checkTime(min);
+//   sec = checkTime(sec);
+//   Hr = checkTime(hr);
 
-  let paragraphDay = document.getElementById('day'),
-  paragraphNumbDay = document.getElementById('numberDay'),
-  paragraphMonth = document.getElementById('month'),
-  paragraphFullYear = document.getElementById('fullYear'),
-  paragraphHours = document.getElementById('hours'),
-  paragraphMin = document.getElementById('min'),
-  paragraphSeg = document.getElementById('seg');
+//   let paragraphDay = document.getElementById('day'),
+//   paragraphNumbDay = document.getElementById('numberDay'),
+//   paragraphMonth = document.getElementById('month'),
+//   paragraphFullYear = document.getElementById('fullYear'),
+//   paragraphHours = document.getElementById('hours'),
+//   paragraphMin = document.getElementById('min'),
+//   paragraphSeg = document.getElementById('seg');
   
-  paragraphDay.textContent = dayArray[day];
-  paragraphNumbDay.textContent = date;
-  paragraphMonth.textContent = monthArray[month];
-  paragraphFullYear.textContent = fullYear;
-  paragraphHours.textContent = hr;
-  paragraphMin.textContent = min;
-  paragraphSeg.textContent = sec;
-  setInterval(Ej3,500)
-}
-  Ej3();
+//   paragraphDay.textContent = dayArray[day];
+//   paragraphNumbDay.textContent = date;
+//   paragraphMonth.textContent = monthArray[month];
+//   paragraphFullYear.textContent = fullYear;
+//   paragraphHours.textContent = hr;
+//   paragraphMin.textContent = min;
+//   paragraphSeg.textContent = sec;
+//   interval
+// }
 
-  let Ej4 = () => {
-    sec = 0,
-    min= 0,
-    hour = 0;
+let today = new Date();
+let clock = new Clock(today);
 
-    pSec = document.getElementById('chronoSec'),
-    pMin = document.getElementById('chronoMin'),
-    pHour = document.getElementById('chronoHour');
-    pSec.textContent = "00"
-    pMin.textContent = "00"
-    pHour.textContent = "00"
-  }
-  Ej4()
-  let h = 00,m =00,s= 58;
-  function write(params) {
-    s++
-    if (s>59){m++;s=0;}
-    if (m>59){h++;m=0;}
-    if (h>24){h=0;}
-    console.log(s)
-    console.log(h)
-    console.log(m)
-    
-    h = checkTime(parseInt(h))
-    m = checkTime(parseInt(m))
-    s = checkTime(parseInt(s))
-    pSec.textContent = ""
-    pMin.textContent = ""
-    pHour.textContent = ""
-    pSec.textContent = s;
-    pMin.textContent = m;
-    pHour.textContent = h;
-    }
-  let id 
-  function chrono(){
-    
-    id = setInterval(write,1000);
-    
-  }
+let cronometro = new Chrono(0, 0, 0);
