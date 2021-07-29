@@ -1,7 +1,8 @@
-/* body {
+body {
   background: rgb(149,196,247);
   background: linear-gradient(180deg, rgba(149,196,247,1) 1%, rgba(15,56,80,1) 45%, rgba(86,17,176,1) 100%); 
-} */
+  background-attachment:fixed;
+}
 @font-face {
   font-family: DS-DIGI;
   src: url(../Font/DS-DIGI.TTF);
@@ -21,4 +22,7 @@
 }
 .txtChrono {
   color: black;
+}
+footer {
+  background: rgba(0, 0, 0, .5)
 }

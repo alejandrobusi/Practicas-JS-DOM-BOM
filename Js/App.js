@@ -123,10 +123,83 @@ class Chrono{
     this.sec = -1
     this.min = 0
     this.hour = 0
+    pHour.textContent = "00";
+    pMin.textContent = "00";
+    pSec.textContent = "00";
   }
   stop(){
     clearInterval(this.id)
     playBtn.disable = false
+  }
+}
+class Temp{
+  constructor(){
+  this.sec = 0;
+  this.min = 0;
+  this.hour = 0;
+  this.id ;
+  }
+  checkTime(i) {
+    if (i < 10 && i > 0) {
+        return "0" + i;
+    } else if (i == 0) {
+      return "00"
+    }else{
+    return i;
+    }
+  }
+  setValue (inputHour, inputMin, inputSec){
+    this.sec = document.getElementById("inputSec").value
+    this.min = document.getElementById("inputMin").value
+    this.hour = document.getElementById("inputHour").value
+    if (this.sec >= 60 || this.min >= 60 || this.hour >= 23) {
+      alert(`Verifica los datos de entrada.\n
+      No puedes ingresar mas de 59 segundos, 59 minutos, 23 horas.`)
+    } 
+    
+  }
+  write (tempSec, tempMin, tempHour, playBtnTemp){
+    playBtnTemp.disabled = true
+    this.id = setInterval(()=>{
+        this.sec--
+          if (this.sec> 0 && this.sec <= 60 ){
+              this.seg--;
+            }else if (this.min > 0 && this.min <= 60) {
+            this.min--;
+            this.sec = 59;
+          }else if (this.hour > 0) {
+            this.hour--;
+            this.min = 59;
+            this.sec = 59;
+          } else{
+            this.hour = 0;
+            this.min = 0;
+            this.sec = 0;
+            clearInterval(this.id)
+          }
+        if (this.sec == 0 && this.min == 0 && this.hour == 0) {
+          alert("¡¡¡El tiempo se agotó!!!")
+          return
+        }
+          tempHour.textContent = this.checkTime(this.hour);
+          tempMin.textContent = this.checkTime(this.min);
+          tempSec.textContent = this.checkTime(this.sec);
+      },1000)
+  }
+  reset(){
+    playBtnTemp.disabled = false
+    this.sec++
+    this.sec = 0
+    this.min = 0
+    this.hour = 0
+    tempHour.textContent = "00";
+    tempMin.textContent = "00";
+    tempSec.textContent = "00";
+    clearInterval(this.id)
+  }
+  stop(){
+    playBtnTemp.disable = false
+    clearInterval(this.id)
   }
 }
 let Ej1 = () => {
@@ -202,5 +275,9 @@ let Ej2b = (metod) => {
 
 let today = new Date();
 let clock = new Clock(today);
-
 let cronometro = new Chrono(0, 0, 0);
+let temp = new Temp();
+
+
+
+

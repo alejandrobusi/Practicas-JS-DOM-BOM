@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Practicas JS-DOM-BOM</title>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="./Styles/bootstrap.min.css">
   <link rel="stylesheet" href="./Styles/Style.css">
   <link rel="shortcut icon" href="./Img/javascript_icon_130900.png" type="image/x-icon">
@@ -65,7 +64,8 @@
         </div>
       </div>
     </div>
-    <div class="card bg-dark mb-3 col-sm-6 col-md-6 col-lg-5 timeFont ">
+    <div class="card bg-dark mb-3 col-sm-12 col-md-12 col-lg-12 timeFont ">
+      <div class="card-header">Reloj</div>
       <div class="d-flex flex-wrap justify-content-center my-3">
         <p class="mx-1 txtDate" id="day"></p>
         <p class="mx-1 txtDate" id="numberDay"></p>
@@ -88,10 +88,10 @@
         </div>
       </div>
       <div  class="d-flex justify-content-center">
-        <button type="button" id="playBtnClock" onclick="clock.write()" class="btn btn-dark mx-1 mt-2 me-1">Start</button>
+        <button type="button" id="playBtnClock" onclick="clock.write()" class="btn btn-dark mx-1 my-2 me-1">Start</button>
       </div>
     </div>
-    <div class="card text-white bg-dark mx-3 mb-3 col-sm-6 col-md-6 col-lg-5  timeFont txtChrono" >
+    <div class="card text-white bg-dark  mb-3 col-sm-12 col-md-12 col-lg-12  timeFont txtChrono" >
       <div class="card-header">Cronometro</div>
         <div class="d-flex justify-content-center align-self-center flex-wrap ">
           <div>
@@ -107,15 +107,72 @@
           </div>
         </div>
         <div class="d-flex justify-content-center">
-          <button type="button" id="playBtn" onclick="cronometro.write( pSec, pMin, pHour, playBtn)" class="btn btn-dark mx-1 mt-2 me-1">Play</button>
-          <button type="button" onclick="cronometro.stop()" class="btn btn-dark mx-1 mt-2 me-1">Stop</button>
-          <button type="button" onclick="cronometro.reset()" class="btn btn-dark mx-1 mt-2 me-1">Reset</button>
+          <button type="button" id="playBtn" onclick="cronometro.write( pSec, pMin, pHour, playBtn)" class="btn btn-dark mx-1 my-2 me-1">Play</button>
+          <button type="button" onclick="cronometro.stop()" class="btn btn-dark mx-1 my-2 me-1">Stop</button>
+          <button type="button" onclick="cronometro.reset()" class="btn btn-dark mx-1 my-2 me-1">Reset</button>
+        </div>
+    </div>
+    <div class="card text-white bg-dark  mb-3 col-sm-12 col-md-12 col-lg-12 timeFont txtChrono" >
+      <div class="card-header">Temporizador</div>
+        <div class="d-flex justify-content-center align-self-center flex-wrap ">
+          <div>
+            <p class="mx-2 txtTime" id="tempHour">00</p>
+          </div>
+          <p class="mx-2 txtTime">:</p>
+          <div>
+            <p class="mx-2 txtTime" id="tempMin">00</p>
+          </div>
+          <p class="mx-2 txtTime">:</p>
+          <div>
+            <p class="mx-2 txtTime" id="tempSec">00</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center ">
+          <button type="button" id="playBtnTemp" onclick="temp.write( tempSec, tempMin, tempHour, playBtnTemp)" class="btn btn-dark mx-1 my-2 me-1">Play</button>
+          <button type="button" onclick="temp.stop()" class="btn btn-dark mx-1 my-2 me-1">Stop</button>
+          <button type="button" onclick="temp.reset()" class="btn btn-dark mx-1 my-2 me-1">Reset</button>
+        </div>
+        <div class="d-flex justify-content-center my-2">
+          <div class="form-group">
+            <input type="number" class="form-control" placeholder="Horas" id="inputHour">
+          </div>
+          <div class="form-group mx-2">
+            <input type="number" class="form-control" placeholder="Minutos" id="inputMin">
+          </div>
+          <div class="form-group ">
+            <input type="number" class="form-control" placeholder="Segundos" id="inputSec">
+          </div>
+          <div>
+            <button type="button" onclick="temp.setValue(inputHour, inputMin, inputSec)" class="btn btn-dark mx-2 me-1">SET</button>
+          </div>
         </div>
     </div>
   </section>
+  <section class="container">
+    <h1>Documentación</h1>
+    <div class="toast show">
+      <div class="toast-header">
+        <strong class="me-auto">Archivo TP</strong>
+        <div class="toast-body"></div>
+          <a class="" href="./Ejercicios de Javascript - Parte 4 DOM y BOM.docx">¡Descargame!</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
-
-  
+<footer class="mt-5">
+  <section id="footer">
+    <div class="container-fluid d-flex">
+      <div class="row text-center d-flex justify-content-center align-items-center">
+        <h2 class="my-4"><strong>Ejercicios JS DOM & BOM by Alejandro Busi</strong></h2>
+        <p class="col-6">Este documento presenta ejercicios de ROLLINGCODE resueltos. Usando HTML, CSS y JS.
+          Enfocado en JS, haciendo uso de Variables, Condicionales, Ciclos, Funciones, Arrays, Objetos, Clases, Dom y BOM.
+        </p>
+        <a href="mailto:alejandrobusi@gmail.com" class="text-decoration-none"><Strong>Contacto</Strong></a>
+      </div>
+    </div>
+  </section>
+</footer>
   <script src="./Js/App.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
